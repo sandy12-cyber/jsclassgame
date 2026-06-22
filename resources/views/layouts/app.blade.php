@@ -10,10 +10,23 @@
     <!-- Favicon (inline emoji) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗣️</text></svg>">
 
+    <!-- Prevent dark-mode flash: apply stored theme before paint -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('speakup-theme');
+                if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
     <!-- Tailwind Play CDN (no build step needed) -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -24,6 +37,8 @@
                         'float': 'float 6s ease-in-out infinite',
                         'pop': 'pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)',
                         'shimmer': 'shimmer 2.2s linear infinite',
+                        'confetti-fall': 'confetti-fall 2.5s ease-in forwards',
+                        'gradient-x': 'gradient-x 6s ease infinite',
                     },
                     keyframes: {
                         float: {
@@ -37,6 +52,14 @@
                         shimmer: {
                             '0%': { backgroundPosition: '-1000px 0' },
                             '100%': { backgroundPosition: '1000px 0' },
+                        },
+                        'confetti-fall': {
+                            '0%': { transform: 'translateY(-10vh) rotate(0deg)', opacity: '1' },
+                            '100%': { transform: 'translateY(110vh) rotate(720deg)', opacity: '0' },
+                        },
+                        'gradient-x': {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
                         },
                     },
                 },
@@ -57,13 +80,13 @@
 
     @stack('styles')
 </head>
-<body class="min-h-screen flex flex-col bg-gradient-to-br from-rose-50 via-amber-50 to-violet-50 text-slate-800 font-sans antialiased">
+<body class="min-h-screen flex flex-col bg-gradient-to-br from-rose-50 via-amber-50 to-violet-50 dark:from-slate-950 dark:via-slate-900 dark:to-indigo-950 text-slate-800 dark:text-slate-100 font-sans antialiased transition-colors duration-300">
 
     <!-- Decorative background blobs -->
     <div class="pointer-events-none fixed inset-0 overflow-hidden -z-10" aria-hidden="true">
-        <div class="absolute -top-24 -left-24 w-96 h-96 bg-rose-300/30 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/3 -right-24 w-96 h-96 bg-violet-300/30 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-1/3 w-96 h-96 bg-amber-300/30 rounded-full blur-3xl"></div>
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-rose-300/30 dark:bg-rose-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/3 -right-24 w-96 h-96 bg-violet-300/30 dark:bg-violet-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-1/3 w-96 h-96 bg-amber-300/30 dark:bg-amber-500/10 rounded-full blur-3xl"></div>
     </div>
 
     @include('partials.header')
@@ -81,5 +104,7 @@
             if (window.lucide) window.lucide.createIcons();
         });
     </script>
+    <!-- Dark-mode toggle (shared across all pages) -->
+    <script src="{{ asset('js/theme.js') }}" defer></script>
 </body>
 </html>

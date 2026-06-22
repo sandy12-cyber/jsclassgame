@@ -391,4 +391,80 @@ return [
         ],
     ],
 
+    // ============================================================
+    // 11. ENVIRONMENT & NATURE
+    // ============================================================
+    'environment-nature' => [
+        'A1' => [
+            ['Do you like animals?', 'Yes, I like animals. I like cats and dogs. My friend has a rabbit.', 'Name 2–3 animals you like.', ['animal', 'cat', 'dog', 'rabbit']],
+            ['What is the weather like today?', 'Today is sunny and warm. The sky is blue. I like sunny days.', 'Use 2 weather words.', ['weather', 'sunny', 'warm', 'sky']],
+            ['Do you have plants at home?', 'Yes, I have a small plant in my room. I water it every day. It has green leaves.', 'Say yes/no + one detail.', ['plant', 'water', 'leaf', 'green']],
+            ['What is your favourite season?', 'My favourite season is summer. It is hot and sunny. I swim in the pool.', 'Name the season + why.', ['season', 'summer', 'hot', 'pool']],
+            ['Do you like the rain?', 'Sometimes I like the rain. It is cool and fresh. But I cannot play outside.', 'Say yes/no + one reason.', ['rain', 'cool', 'fresh', 'outside']],
+            ['Where can you see trees?', 'I can see trees in the park and near my school. Trees are tall and green.', 'Say 2 places with trees.', ['tree', 'park', 'tall', 'green']],
+        ],
+        'A2' => [
+            ['Describe the weather in your country.', 'My country has two seasons — rainy and dry. In the rainy season it rains every afternoon. The dry season is hot and sunny, perfect for the beach.', 'Mention seasons + characteristics.', ['rainy season', 'dry season', 'beach', 'afternoon']],
+            ['Do you recycle at home?', 'Yes, we recycle plastic and paper. We separate the rubbish into different bins. It is good for the environment.', 'Say yes/no + what you recycle.', ['recycle', 'plastic', 'paper', 'rubbish']],
+            ['What can people do to help the environment?', 'People can use less plastic and walk instead of driving. They can also plant trees and save water at home.', 'List 2–3 actions.', ['use less plastic', 'plant trees', 'save water', 'walk']],
+            ['Talk about an animal you like.', 'I like elephants. They are big and intelligent. They live in families and take care of their babies. I saw one at the zoo.', 'Describe the animal + why you like it.', ['elephant', 'intelligent', 'family', 'zoo']],
+            ['Have you ever seen a natural wonder?', 'Yes, I visited a volcano last year. It was huge and a little scary. Smoke came out of the top, and the view was amazing.', 'Use past tense + describe it.', ['volcano', 'huge', 'smoke', 'view']],
+            ['Is pollution a problem where you live?', 'Yes, air pollution is a problem in my city because of the traffic. The rivers are also dirty. I think we must do something.', 'Mention 1–2 problems.', ['pollution', 'traffic', 'river', 'dirty']],
+        ],
+        'B1' => [
+            ['How has your attitude towards the environment changed?', 'As a child I never thought about it. Now I try to reduce waste and buy less plastic. Documentaries about the climate crisis really opened my eyes, and I try to make better choices every day.', 'Use present perfect for change.', ['waste', 'documentary', 'climate crisis', 'choice']],
+            ['Do you think individuals can make a real difference?', 'Up to a point. Individual habits matter, but they can\'t fix a systemic problem alone. We need both — personal responsibility and government action. Small actions add up, but only if the system changes too.', 'Acknowledge limits + add nuance.', ['systemic', 'responsibility', 'add up', 'action']],
+            ['Describe a beautiful natural place you have visited.', 'I once hiked to a hidden waterfall in the mountains. The water was crystal clear and ice-cold, surrounded by tall trees. The only sound was birdsong. It felt like a completely different world.', 'Use sensory, descriptive language.', ['waterfall', 'crystal clear', 'birdsong', 'hidden']],
+            ['What environmental issue concerns you the most?', 'Plastic pollution in the oceans concerns me most. It harms wildlife and ends up in our food. The scale of the problem is staggering, and clean-up feels almost impossible.', 'Name the issue + explain why.', ['plastic pollution', 'ocean', 'wildlife', 'staggering']],
+            ['Should public transport be free to reduce emissions?', 'I think it\'s worth trying in cities. Free transport would encourage people to leave cars at home, which would cut emissions and congestion. The cost to governments would be high, but the long-term benefits could outweigh it.', 'Argue with cost-benefit reasoning.', ['emissions', 'congestion', 'outweigh', 'encourage']],
+            ['How do you feel about the future of the planet?', 'Honestly, I\'m torn. The science is alarming, and progress feels slow. But I also see more awareness and innovation than ever. I try to stay hopeful and do my part rather than give up.', 'Express mixed feelings honestly.', ['alarming', 'awareness', 'innovation', 'hopeful']],
+        ],
+        'B2' => [
+            ['"There is no Planet B." Discuss the effectiveness of this slogan.', 'As a slogan it\'s powerful because it distils an enormous, abstract crisis into five memorable words. Its weakness is that it can feel simplistic or alarmist to sceptics. Still, slogans aren\'t meant to be arguments — they\'re meant to mobilise, and this one clearly has.', 'Evaluate rhetoric, not just content.', ['distil', 'abstract', 'alarmist', 'mobilise']],
+            ['How should wealthy countries balance economic growth with climate responsibility?', 'This is the central tension of our era. Wealthy countries grew by burning cheap fossil fuels, so telling developing nations not to do the same can feel hypocritical. I think the answer is technology transfer and climate finance — sharing the tools of clean growth rather than denying it.', 'Frame as justice + propose a mechanism.', ['hypocritical', 'technology transfer', 'climate finance', 'deny']],
+            ['Discuss the role of individual vs corporate responsibility for the environment.', 'I think the focus on individual choices can be a distraction from the fact that a handful of corporations produce most emissions. Both matter, but pinning the problem on consumers lets polluters off the hook. Real change requires regulating industry, not just asking people to recycle harder.', 'Critique the framing of the debate.', ['distraction', 'corporation', 'off the hook', 'regulate']],
+            ['How might climate change reshape global migration this century?', 'I expect climate migration to become one of the defining issues of the century. Rising seas and failing crops will displace millions, mostly in poorer regions. Wealthier countries will face pressure to accept refugees, and borders will be tested. The political fallout could be enormous.', 'Use prediction + discuss consequences.', ['displace', 'refugee', 'border', 'political fallout']],
+            ['Is rewilding a realistic strategy for restoring ecosystems?', 'I think it\'s promising in specific contexts. Letting land return to nature can restore biodiversity and even capture carbon. But it conflicts with farming and housing needs, so it can\'t be applied everywhere. Targeted rewilding, combined with sustainable agriculture, is probably the realistic path.', 'Argue with conditions and trade-offs.', ['rewilding', 'biodiversity', 'carbon', 'sustainable']],
+            ['Describe an environmental experience that changed your perspective.', 'Snorkelling over a dead coral reef shocked me. Where I\'d expected colour and life, there was grey rubble. It turned climate change from an abstract news story into something viscerally real. I\'ve taken the issue far more seriously since that day.', 'Use narrative + visceral reflection.', ['coral reef', 'rubble', 'viscerally', 'abstract']],
+        ],
+    ],
+
+    // ============================================================
+    // 12. DREAMS & GOALS
+    // ============================================================
+    'dreams-goals' => [
+        'A1' => [
+            ['What do you want to be?', 'I want to be a teacher. I like helping children. Teachers are kind.', 'Use "I want to be a" + why.', ['teacher', 'help', 'children', 'kind']],
+            ['Do you have a dream?', 'Yes, my dream is to travel the world. I want to see many countries. I want to take photos.', 'Say your dream + one detail.', ['dream', 'travel', 'world', 'photo']],
+            ['What makes you happy?', 'Playing with my friends makes me happy. Eating good food makes me happy too.', 'Use "X makes me happy".', ['happy', 'friend', 'food', 'play']],
+            ['What do you want to do this year?', 'This year I want to learn to swim. I also want to read more books.', 'Use "I want to" + 1–2 goals.', ['this year', 'learn', 'swim', 'read']],
+            ['Are you a hard worker?', 'Yes, I am a hard worker. I do my homework. I help my mother at home.', 'Say yes/no + one example.', ['hard worker', 'homework', 'help', 'mother']],
+            ['What is a good habit?', 'A good habit is sleeping early. It is also good to drink water every day.', 'Name 1–2 good habits.', ['habit', 'sleep early', 'water', 'good']],
+        ],
+        'A2' => [
+            ['What are your goals for this year?', 'This year I want to improve my English and learn to cook. I also want to exercise more and save some money.', 'List 2–3 goals with "I want to".', ['goal', 'improve', 'exercise', 'save money']],
+            ['How do you stay motivated?', 'I stay motivated by thinking about why I started. I also reward myself when I finish a task. Small progress keeps me going.', 'Mention 2 strategies.', ['motivated', 'reward', 'progress', 'task']],
+            ['Talk about a goal you achieved.', 'Last year I learned to ride a bicycle. It was hard at first, but I practised every weekend. In the end, I could ride without help.', 'Use past tense + how you achieved it.', ['achieve', 'practise', 'without help', 'in the end']],
+            ['What is a big dream you have?', 'My big dream is to open a small café one day. I love coffee and baking, and I want a place where people feel welcome.', 'Describe the dream + why.', ['dream', 'café', 'coffee', 'baking']],
+            ['Do you make plans or just go with the flow?', 'I make plans for important things, but I also leave time for surprises. Too much planning makes life boring.', 'Express a balanced approach.', ['plan', 'go with the flow', 'surprise', 'boring']],
+            ['Who inspires you?', 'My mother inspires me because she works hard and never gives up. She always supports our family with a smile.', 'Name the person + why.', ['inspire', 'work hard', 'give up', 'support']],
+        ],
+        'B1' => [
+            ['How do you decide which goals to pursue?', 'I ask myself whether a goal aligns with my values and whether I\'d still want it in five years. I avoid goals that come from pressure or comparison. The goals I stick with are the ones that feel genuinely mine.', 'Explain your decision-making.', ['align', 'value', 'comparison', 'genuinely']],
+            ['Describe a time you failed at something important.', 'I failed an important exam despite months of preparation. It was crushing, but it taught me that effort doesn\'t always equal results. I retook it later and passed — the failure made the success far sweeter.', 'Use narrative + reflection.', ['crushing', 'effort', 'retake', 'sweet']],
+            ['Do you think it\'s better to have big dreams or realistic ones?', 'I think a mix is healthiest. Big dreams give direction and excitement, while realistic goals provide steady progress and confidence. Pursuing only big dreams can lead to disappointment, while only realistic goals can feel small.', 'Compare with a balanced conclusion.', ['direction', 'disappointment', 'steady', 'confidence']],
+            ['What would you do if you knew you couldn\'t fail?', 'I\'d write a novel. The fear of writing something bad has always held me back. Knowing I couldn\'t fail would free me to actually start, which is the hardest part.', 'Use second conditional.', ['novel', 'fear', 'hold back', 'free']],
+            ['How do you handle setbacks?', 'I allow myself to feel upset briefly, then I look for the lesson. I ask what I can control and what I can\'t, and focus on the former. Setbacks are painful, but they\'re also useful data.', 'Describe a process.', ['setback', 'upset', 'lesson', 'control']],
+            ['Is success mostly about talent or hard work?', 'I lean towards hard work. Talent gives a head start, but without discipline it goes nowhere. Most "overnight successes" I read about actually worked quietly for years before breaking through.', 'Take a stance with reasoning.', ['talent', 'head start', 'discipline', 'overnight success']],
+        ],
+        'B2' => [
+            ['"A goal without a plan is just a wish." Discuss.', 'I largely agree. Wishes are passive — they imagine an outcome without owning the process. A plan forces you to confront what the goal really costs in time and effort, which is why so many wishes never become goals. That said, over-planning can also paralyse, so the plan should be a compass, not a cage.', 'Engage with the quotation + nuance.', ['passive', 'outcome', 'paralyse', 'compass']],
+            ['How should society balance individual ambition with collective well-being?', 'It\'s a real tension. Ambition drives innovation and progress, but unchecked it can produce inequality and burnout. I think the healthy model rewards ambition while ensuring a strong floor — so people can take risks without risking everything. The balance matters more than either extreme.', 'Frame as a tension + propose synthesis.', ['ambition', 'unchecked', 'inequality', 'floor']],
+            ['Discuss whether failure should be celebrated.', 'I think we should normalise failure, not necessarily celebrate it. Celebrating it risks glorifying mistakes, but stigmatising it kills the risk-taking that drives growth. The healthiest culture treats failure as a normal, instructive part of any meaningful pursuit.', 'Distinguish normalisation from celebration.', ['celebrate', 'stigmatise', 'glorify', 'instructive']],
+            ['How do cultural differences shape what people consider a worthy goal?', 'Goals reflect values, and values vary enormously. In some cultures, a worthy goal is a stable government job and a family; in others, it\'s founding a company. Neither is objectively better — they reveal what a society prizes, whether security, status, freedom or impact.', 'Use comparative, cultural reasoning.', ['worthy', 'stable', 'prize', 'impact']],
+            ['Is it selfish to pursue personal dreams at the expense of responsibility to others?', 'It can be, depending on the stakes. If your dream neglects dependants or harms others, that\'s selfish. But if it simply means choosing a less conventional path, calling it selfish is often a way to enforce conformity. Context is everything.', 'Argue conditionally.', ['selfish', 'dependant', 'conformity', 'conventional']],
+            ['Describe a dream you\'ve let go of, and how you feel about it now.', 'I dreamed of becoming a professional musician, but I let it go in my twenties. At first I felt like a failure, but over time I realised the dream was more about ego than joy. Letting it go made room for things I genuinely love, and I\'m happier now than I would have been chasing it.', 'Use reflective, analytical tone.', ['let go', 'ego', 'make room', 'chase']],
+        ],
+    ],
+
 ];

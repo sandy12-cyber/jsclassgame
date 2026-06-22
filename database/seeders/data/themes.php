@@ -108,4 +108,24 @@ return [
         'sort_order' => 10,
     ],
 
+    [
+        'slug' => 'environment-nature',
+        'name' => 'Environment & Nature',
+        'emoji' => '🌍',
+        'gradient' => 'from-green-500 to-teal-600',
+        'accent' => 'green',
+        'description' => 'Climate, wildlife, sustainability, weather and the natural world around us.',
+        'sort_order' => 11,
+    ],
+
+    [
+        'slug' => 'dreams-goals',
+        'name' => 'Dreams & Goals',
+        'emoji' => '⭐',
+        'gradient' => 'from-indigo-400 to-violet-600',
+        'accent' => 'indigo',
+        'description' => 'Ambitions, the future, motivation and the steps that turn dreams into plans.',
+        'sort_order' => 12,
+    ],
+
 ];

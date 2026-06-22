@@ -6,10 +6,10 @@
 <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
 
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-2 text-sm text-slate-500 mb-6">
-        <a href="{{ route('home') }}" class="hover:text-rose-600 transition-colors">Themes</a>
+    <nav class="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-6">
+        <a href="{{ route('home') }}" class="hover:text-rose-600 dark:hover:text-rose-400 transition-colors">Themes</a>
         <i data-lucide="chevron-right" class="w-4 h-4"></i>
-        <span class="font-semibold text-slate-700">{{ $theme->name }}</span>
+        <span class="font-semibold text-slate-700 dark:text-slate-200">{{ $theme->name }}</span>
     </nav>
 
     <!-- Theme hero -->
@@ -30,8 +30,8 @@
     <div class="mt-10">
         <div class="flex items-end justify-between mb-6">
             <div>
-                <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-800">Pick your level</h2>
-                <p class="text-slate-500 mt-1">From beginner (A1) to upper-intermediate (B2). Higher levels = more complex prompts.</p>
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-slate-800 dark:text-slate-100">Pick your level</h2>
+                <p class="text-slate-500 dark:text-slate-400 mt-1">From beginner (A1) to upper-intermediate (B2). Higher levels = more complex prompts.</p>
             </div>
         </div>
 
@@ -47,7 +47,7 @@
                     $s = $levelStyles[$level['code']];
                 @endphp
 
-                <div class="group relative overflow-hidden rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 {{ $level['count'] > 0 ? '' : 'opacity-60' }}">
+                <div class="group relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 {{ $level['count'] > 0 ? '' : 'opacity-60' }}">
                     <div class="flex">
                         <!-- left color band -->
                         <div class="w-2 bg-gradient-to-b {{ $s['gradient'] }}"></div>
@@ -59,20 +59,20 @@
                                     <div>
                                         <div class="flex items-center gap-2">
                                             <span class="font-display font-extrabold text-2xl {{ $s['text'] }}">{{ $level['code'] }}</span>
-                                            <span class="text-sm font-semibold text-slate-400">· {{ $level['name'] }}</span>
+                                            <span class="text-sm font-semibold text-slate-400 dark:text-slate-500">· {{ $level['name'] }}</span>
                                         </div>
-                                        <p class="text-xs text-slate-400 mt-0.5">~{{ $level['time'] }}s per card</p>
+                                        <p class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">~{{ $level['time'] }}s per card</p>
                                     </div>
                                 </div>
                                 <span class="px-2.5 py-1 rounded-lg text-xs font-bold {{ $s['bg'] }} {{ $s['text'] }}">{{ $level['count'] }} cards</span>
                             </div>
 
-                            <p class="mt-4 text-sm text-slate-600 leading-relaxed">{{ $level['description'] }}</p>
+                            <p class="mt-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{{ $level['description'] }}</p>
 
                             @if (!empty($sampleQuestions[$level['code']]))
                                 <div class="mt-4 rounded-xl {{ $s['bg'] }} border {{ $s['border'] }} p-3">
                                     <p class="text-xs font-bold uppercase tracking-wide {{ $s['text'] }} mb-1">Sample prompt</p>
-                                    <p class="text-sm text-slate-700 italic">"{{ \Illuminate\Support\Str::limit($sampleQuestions[$level['code']]->prompt, 110) }}"</p>
+                                    <p class="text-sm text-slate-700 dark:text-slate-200 italic">"{{ \Illuminate\Support\Str::limit($sampleQuestions[$level['code']]->prompt, 110) }}"</p>
                                 </div>
                             @endif
 
@@ -84,7 +84,7 @@
                                         Play {{ $level['code'] }} deck
                                     </a>
                                 @else
-                                    <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 text-slate-400 font-semibold cursor-not-allowed">
+                                    <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 font-semibold cursor-not-allowed">
                                         <i data-lucide="lock" class="w-4 h-4"></i>
                                         Coming soon
                                     </span>
@@ -99,7 +99,7 @@
 
     <!-- Back link -->
     <div class="mt-10">
-        <a href="{{ route('home') }}" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-rose-600 transition-colors">
+        <a href="{{ route('home') }}" class="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition-colors">
             <i data-lucide="arrow-left" class="w-4 h-4"></i> All themes
         </a>
     </div>

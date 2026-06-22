@@ -3,20 +3,28 @@
 A **colorful, aesthetic** English-speaking practice card game built with **Laravel 11**.
 Pick a theme, choose your CEFR level (**A1 → B2**), draw question cards, and practice speaking aloud — solo, with a partner, or in class.
 
-![Themes](https://img.shields.io/badge/themes-10-ec4899) ![Questions](https://img.shields.io/badge/questions-240-8b5cf6) ![Levels](https://img.shields.io/badge/levels-A1%E2%80%93B2-10b981) ![Laravel](https://img.shields.io/badge/Laravel-11-ff2d20) ![PHP](https://img.shields.io/badge/PHP-8.2+-777bb4)
+![Themes](https://img.shields.io/badge/themes-12-ec4899) ![Questions](https://img.shields.io/badge/questions-288-8b5cf6) ![Levels](https://img.shields.io/badge/levels-A1%E2%80%93B2-10b981) ![Laravel](https://img.shields.io/badge/Laravel-11-ff2d20) ![PHP](https://img.shields.io/badge/PHP-8.2+-777bb4)
 
 ---
 
 ## ✨ Features
 
-- 🎨 **Colorful but aesthetic UI** — soft gradients, glassmorphism, smooth animations
+- 🎨 **Colorful but aesthetic UI** — soft gradients, glassmorphism, smooth animations, **dark mode**
 - 🃏 **Card-flip game** — tap a card to reveal a sample answer, a tip, and useful vocabulary
-- 🎯 **10 themes** — Daily Life, Travel, Food, Family, Work, Hobbies, Education, Technology, Health, Culture & Arts
+- 🎯 **12 themes** — Daily Life, Travel, Food, Family, Work, Hobbies, Education, Technology, Health, Culture & Arts, Environment & Nature, Dreams & Goals
 - 📈 **4 CEFR levels per theme** — A1 (Beginner) → A2 (Elementary) → B1 (Intermediate) → B2 (Upper-Intermediate)
 - ⏱️ **Built-in speaking timer** — auto-starts when you flip the card
+- 🔊 **Text-to-Speech** — hear the prompt and sample answer read aloud (Web Speech API)
+- 🎙️ **Audio recording** — record yourself, play it back, and self-assess (MediaRecorder API)
+- ⭐ **Favorites** — star any card; your saved cards live on a dedicated page (localStorage)
+- 🎁 **Daily Challenge** — one deterministic card per day, the same for everyone — perfect for class warm-ups
+- 🎲 **Random card** — draw a surprise prompt from anywhere in the bank
+- 🔍 **Search & filter** — keyword + theme + multi-level filters across all 288 questions
+- 📊 **Stats dashboard** — totals, per-level distribution, featured prompts, and your local practice progress
+- 🎉 **Confetti on completion** — celebrate when you finish a deck or practice every card
 - 🔀 **Shuffle, next/previous, mark-as-practiced** — full deck control
-- ⌨️ **Keyboard shortcuts** — `←` `→` to navigate, `Space`/`Enter` to flip, `S` to shuffle
-- 📊 **Progress tracking** — practiced cards are saved (session + server)
+- ⌨️ **Keyboard shortcuts** — `←` `→` to navigate, `Space`/`Enter` to flip, `S` shuffle, `F` favorite, `R` record
+- 📱 **Responsive + accessible** — mobile menu, focus rings, reduced-motion support
 - 🧩 **Zero npm build** — uses the Tailwind Play CDN, so `composer install` is all you need
 - 🗄️ **SQLite by default** — works out of the box; switch to MySQL anytime
 
@@ -177,17 +185,31 @@ php artisan serve
 4. **Tap the card** to flip it and reveal:
    - a **sample answer**
    - a **tip** on how to approach the question
-   - **useful vocabulary** chips
+   - **useful vocabulary** chips (click a chip to hear it pronounced)
 5. Use **Next / Previous / Shuffle** to navigate the deck.
 6. Click **Mark practiced** to track which cards you've done (saved in your session).
 
+### ✨ Extra features
+
+- **Daily Challenge** — visit `/challenge` for one deterministic card per day. Everyone sees the same card, so it's perfect for class warm-ups.
+- **Random card** — `/challenge/random` gives you a fresh random prompt each visit.
+- **Text-to-Speech** — click the 🔊 button to hear the prompt or sample answer read aloud.
+- **Audio recording** — click the **Record** button to capture your answer, then play it back to self-assess.
+- **Favorites** — click the ❤️ on any card to save it; find all saved cards under `/favorites`.
+- **Search** — `/search` lets you filter all 288 questions by keyword, theme, and level.
+- **Dashboard** — `/dashboard` shows totals, per-level distribution, and your local practice progress.
+- **Dark mode** — toggle the 🌙 / ☀️ icon in the header; the choice is remembered across sessions.
+- **Confetti** — finishing a deck or practicing every card triggers a confetti celebration.
+
 ### ⌨️ Keyboard shortcuts
 
-| Key                 | Action            |
-|---------------------|-------------------|
-| `→` / `←`           | Next / Previous   |
-| `Space` or `Enter`  | Flip the card     |
-| `S`                 | Shuffle the deck  |
+| Key                 | Action                          |
+|---------------------|---------------------------------|
+| `→` / `←`           | Next / Previous card            |
+| `Space` or `Enter`  | Flip the card                   |
+| `S`                 | Shuffle the deck                |
+| `F`                 | Add to / remove from favorites  |
+| `R`                 | Start / stop recording          |
 
 ### 🏫 Using it in class
 
@@ -195,6 +217,9 @@ php artisan serve
 - Use the built-in timer to challenge students to speak for the full duration.
 - Flip the card to reveal the model answer, then have students improve on it.
 - Shuffle for warm-ups, or go in order for structured practice.
+- Use the **Daily Challenge** as a 5-minute warm-up — every student gets the same prompt to discuss.
+- Have learners **record themselves** and compare playback to the sample answer.
+- Ask students to **favorite** cards they struggled with, then revisit them on the Favorites page.
 
 ---
 
@@ -206,7 +231,10 @@ jsclassgame/
 │   ├── Http/Controllers/
 │   │   ├── HomeController.php      # Home + About pages
 │   │   ├── ThemeController.php     # Theme detail (level picker)
-│   │   └── GameController.php      # Card game + JSON API
+│   │   ├── GameController.php      # Card game + JSON API
+│   │   ├── ChallengeController.php # Daily + random challenge
+│   │   ├── SearchController.php    # Search + favorites resolve API
+│   │   └── DashboardController.php # Stats dashboard
 │   └── Models/
 │       ├── Theme.php
 │       └── Question.php
@@ -214,20 +242,30 @@ jsclassgame/
 │   ├── migrations/                 # Schema (themes, questions, …)
 │   └── seeders/
 │       ├── data/
-│       │   ├── themes.php          # 10 theme definitions
-│       │   └── questions.php       # 240 speaking questions
+│       │   ├── themes.php          # 12 theme definitions
+│       │   └── questions.php       # 288 speaking questions
 │       ├── ThemeSeeder.php
 │       └── QuestionSeeder.php
 ├── public/
-│   ├── css/app.css                 # Custom styles + animations
-│   └── js/game.js                  # Card game logic (vanilla JS)
+│   ├── css/app.css                 # Custom styles + animations + dark mode
+│   └── js/
+│       ├── game.js                 # Card game engine (flip, TTS, recording, favorites, confetti)
+│       ├── challenge.js            # Daily/random challenge page
+│       ├── favorites.js            # Favorites page hydration
+│       ├── dashboard.js            # Dashboard client-side hydration
+│       └── theme.js                # Dark mode toggle + mobile menu
 ├── resources/views/
-│   ├── layouts/app.blade.php       # Main layout (Tailwind CDN)
-│   ├── partials/                   # Header & footer
+│   ├── layouts/app.blade.php       # Main layout (Tailwind CDN + dark mode)
+│   ├── partials/                   # Header (nav + theme toggle) & footer
 │   ├── home.blade.php              # Themes grid
 │   ├── theme.blade.php             # Level picker
 │   ├── game.blade.php              # The card game 🎴
-│   └── about.blade.php             # How-to-play
+│   ├── challenge.blade.php         # Daily / random challenge
+│   ├── search.blade.php            # Search & filter
+│   ├── favorites.blade.php         # Saved cards
+│   ├── dashboard.blade.php         # Stats & progress
+│   ├── game-empty.blade.php        # Empty-deck fallback
+│   └── about.blade.php             # How-to-play + shortcuts
 ├── routes/web.php
 └── .env.example
 ```
