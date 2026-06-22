@@ -1,0 +1,9 @@
+{
+    "private": true,
+    "type": "module",
+    "name": "speakup-card-game",
+    "description": "SpeakUp! — a colorful speaking question card game built with Laravel. Assets use the Tailwind Play CDN, so no npm build is required.",
+    "scripts": {
+        "info": "echo \"This project uses the Tailwind Play CDN. No build step required. See README.md for setup.\""
+    }
+}
