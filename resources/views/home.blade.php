@@ -66,6 +66,30 @@
         </div>
     </div>
 
+    <!-- Quick tools strip -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-12">
+        <a href="{{ route('challenge.daily') }}" class="group rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 p-5 text-white shadow-lg hover-lift transition-all">
+            <i data-lucide="gift" class="w-7 h-7 mb-2"></i>
+            <h3 class="font-display font-bold text-base leading-tight">Daily Challenge</h3>
+            <p class="text-xs text-white/80 mt-0.5">One card a day</p>
+        </a>
+        <a href="{{ route('tools.timer') }}" class="group rounded-2xl bg-gradient-to-br from-cyan-500 to-emerald-500 p-5 text-white shadow-lg hover-lift transition-all">
+            <i data-lucide="timer" class="w-7 h-7 mb-2"></i>
+            <h3 class="font-display font-bold text-base leading-tight">Speaking Timer</h3>
+            <p class="text-xs text-white/80 mt-0.5">Self-timed practice</p>
+        </a>
+        <a href="{{ route('playlist.index') }}" class="group rounded-2xl bg-gradient-to-br from-fuchsia-500 to-rose-500 p-5 text-white shadow-lg hover-lift transition-all">
+            <i data-lucide="list-music" class="w-7 h-7 mb-2"></i>
+            <h3 class="font-display font-bold text-base leading-tight">Playlist</h3>
+            <p class="text-xs text-white/80 mt-0.5">Multi-deck session</p>
+        </a>
+        <a href="{{ route('export.index') }}" class="group rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 p-5 text-white shadow-lg hover-lift transition-all">
+            <i data-lucide="download" class="w-7 h-7 mb-2"></i>
+            <h3 class="font-display font-bold text-base leading-tight">Export CSV</h3>
+            <p class="text-xs text-white/80 mt-0.5">For teachers</p>
+        </a>
+    </div>
+
     <!-- Themes grid -->
     <div id="themes" class="scroll-mt-24">
         <div class="flex items-end justify-between mb-6">

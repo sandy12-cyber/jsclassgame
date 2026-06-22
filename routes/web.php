@@ -10,6 +10,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\PairworkController;
 use App\Http\Controllers\FlashcardController;
+use App\Http\Controllers\ToolsController;
+use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\ExportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +32,9 @@ Route::get('/welcome', [HomeController::class, 'welcome'])->name('welcome');
 // Dashboard — overall stats & progress
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+// Rubric history — lesson self-assessment score trends
+Route::get('/rubric-history', [DashboardController::class, 'rubricHistory'])->name('rubric.history');
+
 // Achievements & streaks page
 Route::get('/achievements', [DashboardController::class, 'achievements'])->name('achievements');
 
@@ -41,6 +47,17 @@ Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 // Favorites — client-rendered list of starred questions (ids in localStorage)
 Route::get('/favorites', [SearchController::class, 'favorites'])->name('favorites');
+
+// Tools — standalone speaking stopwatch / timer
+Route::get('/tools/timer', [ToolsController::class, 'timer'])->name('tools.timer');
+
+// Playlist — queue multiple decks into a single session
+Route::get('/playlist', [PlaylistController::class, 'index'])->name('playlist.index');
+Route::get('/playlist/play', [PlaylistController::class, 'play'])->name('playlist.play');
+
+// Export — CSV download for teachers
+Route::get('/export/questions.csv', [ExportController::class, 'questionsCsv'])->name('export.questions.csv');
+Route::get('/export', [ExportController::class, 'index'])->name('export.index');
 
 // Theme detail — show levels A1–B2 for a theme
 Route::get('/themes/{theme:slug}', [ThemeController::class, 'show'])->name('themes.show');
@@ -71,5 +88,9 @@ Route::prefix('api')->group(function () {
 
     // Question lookup by id (used by challenge / favorites)
     Route::get('/question/{id}', [ChallengeController::class, 'question'])->name('api.question');
+
+    // Playlist — resolve a list of {theme_slug, level} pairs into decks
+    Route::post('/playlist/resolve', [PlaylistController::class, 'resolve'])->name('api.playlist.resolve');
 });
+
 

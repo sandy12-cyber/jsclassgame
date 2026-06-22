@@ -179,4 +179,25 @@ class DashboardController extends Controller
 
         return view('achievements', compact('achievements', 'totalQuestions'));
     }
+
+    /**
+     * Rubric history page — surfaces the per-card speaking-rubric scores
+     * saved in localStorage during Lesson Mode. The page is a shell that
+     * hydrates client-side (scores live in the browser, not the DB).
+     */
+    public function rubricHistory(): View
+    {
+        $themes = Theme::where('is_active', true)->orderBy('name')->get();
+        $totalQuestions = Question::count();
+
+        // The four rubric criteria (kept in sync with LessonController)
+        $criteria = [
+            ['key' => 'fluency',       'label' => 'Fluency',       'color' => 'from-emerald-400 to-green-500',   'hex' => '#10b981'],
+            ['key' => 'accuracy',      'label' => 'Accuracy',      'color' => 'from-teal-400 to-cyan-500',       'hex' => '#14b8a6'],
+            ['key' => 'vocabulary',    'label' => 'Vocabulary',    'color' => 'from-amber-400 to-orange-500',    'hex' => '#f59e0b'],
+            ['key' => 'pronunciation', 'label' => 'Pronunciation', 'color' => 'from-rose-400 to-pink-600',       'hex' => '#f43f5e'],
+        ];
+
+        return view('rubric-history', compact('themes', 'totalQuestions', 'criteria'));
+    }
 }

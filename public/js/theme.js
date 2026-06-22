@@ -1,5 +1,5 @@
 /* ============================================================
-   SpeakUp! — global theme (dark mode) + mobile menu
+   SpeakUp! — global theme (dark mode) + mobile menu + toast helper
    ============================================================ */
 (function () {
     'use strict';
@@ -49,6 +49,27 @@
             });
         }
     }
+
+    // ---- Global toast helper (available as window.SpeakUpToast) ----
+    window.SpeakUpToast = function (message, type, duration) {
+        type = type || 'info';
+        duration = duration || 2500;
+        let el = document.getElementById('globalToast');
+        if (!el) {
+            el = document.createElement('div');
+            el.id = 'globalToast';
+            el.className = 'toast';
+            document.body.appendChild(el);
+        }
+        el.className = 'toast toast-' + type;
+        const icon = { success: '✓', info: 'ℹ', warning: '!', error: '✕' }[type] || 'ℹ';
+        el.innerHTML = '<span style="font-size:1.1rem">' + icon + '</span><span>' + message + '</span>';
+        // force reflow then show
+        void el.offsetWidth;
+        el.classList.add('show');
+        clearTimeout(el._timer);
+        el._timer = setTimeout(() => el.classList.remove('show'), duration);
+    };
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);

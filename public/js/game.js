@@ -106,10 +106,12 @@
         const id = questions[currentIndex].id;
         if (favorites.has(id)) {
             favorites.delete(id);
+            if (window.SpeakUpToast) window.SpeakUpToast('Removed from favorites', 'info', 1500);
         } else {
             favorites.add(id);
             favoriteBtn.classList.add('favorite-pop');
             setTimeout(() => favoriteBtn.classList.remove('favorite-pop'), 500);
+            if (window.SpeakUpToast) window.SpeakUpToast('Added to favorites ❤️', 'success', 1800);
         }
         persistFavorites();
         updateFavoriteUI();

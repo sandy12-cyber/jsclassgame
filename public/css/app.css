@@ -168,3 +168,70 @@ a.group:hover .glass-sheen::after {
 @media screen {
     .print-only { display: none !important; }
 }
+
+/* ---- Toast notifications ---- */
+.toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(120%);
+    z-index: 60;
+    padding: 0.875rem 1.25rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-width: 90vw;
+}
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+}
+.toast-success { background: linear-gradient(135deg, #10b981, #14b8a6); }
+.toast-info    { background: linear-gradient(135deg, #8b5cf6, #d946ef); }
+.toast-warning { background: linear-gradient(135deg, #f59e0b, #f97316); }
+.toast-error   { background: linear-gradient(135deg, #f43f5e, #e11d48); }
+
+/* ---- Progress ring (SVG) ---- */
+.progress-ring {
+    transform: rotate(-90deg);
+}
+.progress-ring circle {
+    transition: stroke-dashoffset 0.6s ease;
+}
+
+/* ---- Micro-interaction: button press ---- */
+button:active:not(:disabled), a:active {
+    transform: scale(0.97);
+}
+
+/* ---- Card subtle lift on hover ---- */
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+}
+
+/* ---- Marquee for streak flame ---- */
+@keyframes flameFlicker {
+    0%, 100% { transform: scale(1) rotate(-1deg); }
+    50%      { transform: scale(1.08) rotate(1deg); }
+}
+.flame-flicker {
+    animation: flameFlicker 0.8s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* ---- Smooth page transition ---- */
+main {
+    animation: pageFade 0.3s ease-out;
+}
+@keyframes pageFade {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

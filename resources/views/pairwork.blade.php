@@ -28,7 +28,7 @@
     <!-- Turn indicator -->
     <div class="mb-6">
         <div id="turnBanner" class="rounded-3xl p-[2px] bg-gradient-to-r from-indigo-500 to-fuchsia-500 shadow-lg transition-all">
-            <div class="rounded-[22px] bg-white dark:bg-slate-900 p-5 flex items-center justify-between gap-4">
+            <div class="rounded-[22px] bg-white dark:bg-slate-900 p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
                     <span id="turnAvatar" class="grid place-items-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 text-white font-display font-extrabold text-2xl shadow-lg">A</span>
                     <div>
@@ -36,11 +36,25 @@
                         <p id="turnName" class="font-display font-extrabold text-xl text-slate-800 dark:text-slate-100">Player A</p>
                     </div>
                 </div>
-                <div class="text-right">
+                <!-- Per-turn timer -->
+                <div class="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-800">
+                    <i data-lucide="timer" class="w-4 h-4 text-indigo-500"></i>
+                    <span id="turnTimer" class="font-mono font-bold text-lg tabular-nums text-indigo-500">{{ $suggestedTime }}s</span>
+                </div>
+                <div class="text-center sm:text-right">
                     <p class="text-xs uppercase tracking-wide text-slate-400 dark:text-slate-500">Task</p>
                     <p id="turnTask" class="font-semibold text-sm text-indigo-600 dark:text-indigo-400">Answer the prompt</p>
                 </div>
             </div>
+        </div>
+        <!-- Swap roles + timer controls -->
+        <div class="mt-2 flex flex-wrap items-center justify-center gap-2">
+            <button id="swapRolesBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" title="Manually swap which player speaks next">
+                <i data-lucide="repeat" class="w-3.5 h-3.5"></i> Swap roles
+            </button>
+            <button id="turnTimerStartBtn" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                <i data-lucide="play" class="w-3.5 h-3.5"></i> <span>Start timer</span>
+            </button>
         </div>
     </div>
 

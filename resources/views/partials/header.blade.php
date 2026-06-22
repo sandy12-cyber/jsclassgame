@@ -26,15 +26,28 @@
                     <a href="{{ route('favorites') }}" class="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors">
                         <i data-lucide="heart" class="w-4 h-4 text-rose-500"></i> Favorites
                     </a>
+                    <a href="{{ route('playlist.index') }}" class="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-fuchsia-50 dark:hover:bg-fuchsia-950/40 transition-colors">
+                        <i data-lucide="list-music" class="w-4 h-4 text-fuchsia-500"></i> Playlist
+                    </a>
+                    <a href="{{ route('tools.timer') }}" class="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-cyan-50 dark:hover:bg-cyan-950/40 transition-colors">
+                        <i data-lucide="timer" class="w-4 h-4 text-cyan-500"></i> Speaking Timer
+                    </a>
+                    <div class="my-1 border-t border-slate-100 dark:border-slate-800"></div>
                     <a href="{{ route('pairwork.setup') }}" class="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 transition-colors">
                         <i data-lucide="users" class="w-4 h-4 text-indigo-500"></i> Pair Work
                     </a>
                     <a href="{{ route('flashcards.index') }}" class="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-teal-50 dark:hover:bg-teal-950/40 transition-colors">
                         <i data-lucide="printer" class="w-4 h-4 text-teal-500"></i> Flashcards
                     </a>
+                    <a href="{{ route('export.index') }}" class="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors">
+                        <i data-lucide="download" class="w-4 h-4 text-emerald-500"></i> Export CSV
+                    </a>
                     <div class="my-1 border-t border-slate-100 dark:border-slate-800"></div>
                     <a href="{{ route('dashboard') }}" class="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition-colors">
                         <i data-lucide="bar-chart-3" class="w-4 h-4 text-emerald-500"></i> Stats
+                    </a>
+                    <a href="{{ route('rubric.history') }}" class="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-violet-50 dark:hover:bg-violet-950/40 transition-colors">
+                        <i data-lucide="line-chart" class="w-4 h-4 text-violet-500"></i> Rubric History
                     </a>
                     <a href="{{ route('achievements') }}" class="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-amber-50 dark:hover:bg-amber-950/40 transition-colors">
                         <i data-lucide="trophy" class="w-4 h-4 text-amber-500"></i> Achievements
@@ -69,9 +82,13 @@
             <a href="{{ route('challenge.daily') }}" class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-amber-950/40"><i data-lucide="gift" class="w-4 h-4"></i> Daily</a>
             <a href="{{ route('search') }}" class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-violet-50 dark:hover:bg-violet-950/40"><i data-lucide="search" class="w-4 h-4"></i> Search</a>
             <a href="{{ route('favorites') }}" class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-rose-50 dark:hover:bg-rose-950/40"><i data-lucide="heart" class="w-4 h-4"></i> Favorites</a>
+            <a href="{{ route('playlist.index') }}" class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-fuchsia-50 dark:hover:bg-fuchsia-950/40"><i data-lucide="list-music" class="w-4 h-4"></i> Playlist</a>
+            <a href="{{ route('tools.timer') }}" class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-cyan-50 dark:hover:bg-cyan-950/40"><i data-lucide="timer" class="w-4 h-4"></i> Timer</a>
             <a href="{{ route('pairwork.setup') }}" class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-indigo-950/40"><i data-lucide="users" class="w-4 h-4"></i> Pair Work</a>
             <a href="{{ route('flashcards.index') }}" class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-teal-950/40"><i data-lucide="printer" class="w-4 h-4"></i> Flashcards</a>
+            <a href="{{ route('export.index') }}" class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-950/40"><i data-lucide="download" class="w-4 h-4"></i> Export CSV</a>
             <a href="{{ route('dashboard') }}" class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-950/40"><i data-lucide="bar-chart-3" class="w-4 h-4"></i> Stats</a>
+            <a href="{{ route('rubric.history') }}" class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-violet-50 dark:hover:bg-violet-950/40"><i data-lucide="line-chart" class="w-4 h-4"></i> Rubric</a>
             <a href="{{ route('achievements') }}" class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-amber-50 dark:hover:bg-amber-950/40"><i data-lucide="trophy" class="w-4 h-4"></i> Badges</a>
             <a href="{{ route('about') }}" class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-fuchsia-50 dark:hover:bg-fuchsia-950/40"><i data-lucide="help-circle" class="w-4 h-4"></i> How to play</a>
         </div>
