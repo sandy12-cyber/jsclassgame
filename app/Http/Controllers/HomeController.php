@@ -45,4 +45,15 @@ class HomeController extends Controller
 
         return view('about', compact('levels'));
     }
+
+    /**
+     * Welcome / onboarding tour for first-time visitors.
+     */
+    public function welcome(): View
+    {
+        $totalQuestions = Question::count();
+        $totalThemes = Theme::where('is_active', true)->count();
+
+        return view('welcome', compact('totalQuestions', 'totalThemes'));
+    }
 }

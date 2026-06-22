@@ -38,17 +38,31 @@
         <!-- Quick stats -->
         <div class="mt-10 grid grid-cols-3 gap-3 max-w-md mx-auto">
             <div class="rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-white dark:border-slate-700 p-4 shadow-sm">
-                <div class="text-2xl font-display font-extrabold text-rose-600 dark:text-rose-400">{{ $totalThemes }}</div>
+                <div class="text-2xl font-display font-extrabold text-rose-600 dark:text-rose-400 counter" data-count="{{ $totalThemes }}">0</div>
                 <div class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">Themes</div>
             </div>
             <div class="rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-white dark:border-slate-700 p-4 shadow-sm">
-                <div class="text-2xl font-display font-extrabold text-violet-600 dark:text-violet-400">{{ $totalQuestions }}</div>
+                <div class="text-2xl font-display font-extrabold text-violet-600 dark:text-violet-400 counter" data-count="{{ $totalQuestions }}">0</div>
                 <div class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">Questions</div>
             </div>
             <div class="rounded-2xl bg-white/70 dark:bg-slate-900/70 border border-white dark:border-slate-700 p-4 shadow-sm">
-                <div class="text-2xl font-display font-extrabold text-emerald-600 dark:text-emerald-400">4</div>
+                <div class="text-2xl font-display font-extrabold text-emerald-600 dark:text-emerald-400 counter" data-count="4">0</div>
                 <div class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">Levels</div>
             </div>
+        </div>
+
+        <!-- First-visit welcome banner -->
+        <div id="welcomeBanner" class="hidden mt-8 max-w-2xl mx-auto rounded-2xl bg-gradient-to-r from-rose-500 via-fuchsia-500 to-violet-500 p-5 text-white shadow-lg flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="grid place-items-center w-10 h-10 rounded-xl bg-white/20 text-xl shrink-0">👋</span>
+                <div>
+                    <p class="font-display font-bold">New here?</p>
+                    <p class="text-sm text-white/90">Take a 60-second tour to see how SpeakUp! works.</p>
+                </div>
+            </div>
+            <a href="{{ route('welcome') }}" class="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white text-rose-600 font-semibold text-sm shadow hover:-translate-y-0.5 transition-all">
+                Start tour <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
         </div>
     </div>
 
@@ -108,3 +122,36 @@
     </div>
 </section>
 @endsection
+
+@push('scripts')
+<script>
+// Animated counters for the hero stats
+(function () {
+    function animateCounter(el) {
+        const target = parseInt(el.dataset.count, 10) || 0;
+        const duration = 1200;
+        const start = performance.now();
+        function tick(now) {
+            const t = Math.min(1, (now - start) / duration);
+            const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+            el.textContent = Math.round(eased * target);
+            if (t < 1) requestAnimationFrame(tick);
+            else el.textContent = target;
+        }
+        requestAnimationFrame(tick);
+    }
+    document.querySelectorAll('.counter').forEach(animateCounter);
+
+    // First-visit welcome banner (shown once, dismissible)
+    try {
+        if (!localStorage.getItem('speakup-welcomed')) {
+            const banner = document.getElementById('welcomeBanner');
+            if (banner) {
+                banner.classList.remove('hidden');
+                banner.classList.add('animate-pop');
+            }
+        }
+    } catch (e) {}
+})();
+</script>
+@endpush

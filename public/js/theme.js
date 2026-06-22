@@ -28,6 +28,26 @@
                 a.addEventListener('click', () => menu.classList.add('hidden'));
             });
         }
+
+        // "More" dropdown (desktop)
+        const moreBtn = document.getElementById('moreBtn');
+        const moreMenu = document.getElementById('moreMenu');
+        if (moreBtn && moreMenu) {
+            moreBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                moreMenu.classList.toggle('hidden');
+            });
+            // Close on link click
+            moreMenu.querySelectorAll('a').forEach((a) => {
+                a.addEventListener('click', () => moreMenu.classList.add('hidden'));
+            });
+            // Close when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!moreBtn.contains(e.target) && !moreMenu.contains(e.target)) {
+                    moreMenu.classList.add('hidden');
+                }
+            });
+        }
     }
 
     if (document.readyState === 'loading') {

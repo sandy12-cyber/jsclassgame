@@ -76,12 +76,28 @@
                                 </div>
                             @endif
 
-                            <div class="mt-5">
+                            <div class="mt-5 flex flex-wrap gap-2">
                                 @if ($level['count'] > 0)
                                     <a href="{{ route('game.play', [$theme, strtolower($level['code'])]) }}"
-                                       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r {{ $s['gradient'] }} text-white font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                                       class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r {{ $s['gradient'] }} text-white font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
                                         <i data-lucide="play" class="w-4 h-4"></i>
-                                        Play {{ $level['code'] }} deck
+                                        Play
+                                    </a>
+                                    <a href="{{ route('lesson.play', [$theme, strtolower($level['code'])]) }}"
+                                       class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-semibold shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-all" title="Guided mode with self-assessment rubric">
+                                        <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                                        Lesson
+                                    </a>
+                                    <a href="{{ route('pairwork.play', [$theme, strtolower($level['code'])]) }}"
+                                       class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-semibold shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-all" title="Two-player turn-based mode">
+                                        <i data-lucide="users" class="w-4 h-4"></i>
+                                        Pair
+                                    </a>
+                                    <a href="{{ route('flashcards.show', [$theme, strtolower($level['code'])]) }}"
+                                       target="_blank"
+                                       class="inline-flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-semibold shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-all" title="Printable flashcard sheet">
+                                        <i data-lucide="printer" class="w-4 h-4"></i>
+                                        Print
                                     </a>
                                 @else
                                     <span class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 font-semibold cursor-not-allowed">

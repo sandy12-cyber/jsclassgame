@@ -244,6 +244,22 @@
         updateUI();
         saveProgress();
 
+        // Mark today as a streak day (for achievements)
+        if (typeof window.SpeakUpMarkToday === 'function') {
+            window.SpeakUpMarkToday();
+        } else {
+            // Fallback: define the helper inline if achievements.js hasn't loaded
+            try {
+                const today = new Date().toISOString().slice(0, 10);
+                let days = JSON.parse(localStorage.getItem('speakup-streak-days') || '[]');
+                if (!days.includes(today)) {
+                    days.push(today);
+                    days = days.slice(-30);
+                    localStorage.setItem('speakup-streak-days', JSON.stringify(days));
+                }
+            } catch (e) {}
+        }
+
         // If all cards practiced, celebrate
         const allPracticed = questions.every(q => practiced.has(q.id));
         if (allPracticed) showDone();

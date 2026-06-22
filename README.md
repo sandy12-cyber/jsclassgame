@@ -3,28 +3,33 @@
 A **colorful, aesthetic** English-speaking practice card game built with **Laravel 11**.
 Pick a theme, choose your CEFR level (**A1 → B2**), draw question cards, and practice speaking aloud — solo, with a partner, or in class.
 
-![Themes](https://img.shields.io/badge/themes-12-ec4899) ![Questions](https://img.shields.io/badge/questions-288-8b5cf6) ![Levels](https://img.shields.io/badge/levels-A1%E2%80%93B2-10b981) ![Laravel](https://img.shields.io/badge/Laravel-11-ff2d20) ![PHP](https://img.shields.io/badge/PHP-8.2+-777bb4)
+![Themes](https://img.shields.io/badge/themes-12-ec4899) ![Questions](https://img.shields.io/badge/questions-480-8b5cf6) ![Levels](https://img.shields.io/badge/levels-A1%E2%80%93B2-10b981) ![Laravel](https://img.shields.io/badge/Laravel-11-ff2d20) ![PHP](https://img.shields.io/badge/PHP-8.2+-777bb4)
 
 ---
 
 ## ✨ Features
 
-- 🎨 **Colorful but aesthetic UI** — soft gradients, glassmorphism, smooth animations, **dark mode**
-- 🃏 **Card-flip game** — tap a card to reveal a sample answer, a tip, and useful vocabulary
+- 🎨 **Colorful but aesthetic UI** — soft gradients, glassmorphism, smooth animations, **dark mode**, skeleton loaders, animated counters
+- 🃏 **Four play modes**:
+  - **Quick Play** — flip-card game with timer, shuffle, TTS, recording, favorites
+  - **Lesson Mode** — guided practice with a 4-criterion speaking rubric self-assessment (fluency, accuracy, vocabulary, pronunciation)
+  - **Pair Work** — 2-player turn-based mode for classrooms (Player A answers, Player B asks a follow-up, then swap)
+  - **Daily Challenge** — one deterministic card per day, same for everyone
 - 🎯 **12 themes** — Daily Life, Travel, Food, Family, Work, Hobbies, Education, Technology, Health, Culture & Arts, Environment & Nature, Dreams & Goals
-- 📈 **4 CEFR levels per theme** — A1 (Beginner) → A2 (Elementary) → B1 (Intermediate) → B2 (Upper-Intermediate)
+- 📈 **4 CEFR levels per theme** — A1 (Beginner) → A2 (Elementary) → B1 (Intermediate) → B2 (Upper-Intermediate), 10 cards per deck, **480 questions total**
 - ⏱️ **Built-in speaking timer** — auto-starts when you flip the card
 - 🔊 **Text-to-Speech** — hear the prompt and sample answer read aloud (Web Speech API)
 - 🎙️ **Audio recording** — record yourself, play it back, and self-assess (MediaRecorder API)
 - ⭐ **Favorites** — star any card; your saved cards live on a dedicated page (localStorage)
-- 🎁 **Daily Challenge** — one deterministic card per day, the same for everyone — perfect for class warm-ups
 - 🎲 **Random card** — draw a surprise prompt from anywhere in the bank
-- 🔍 **Search & filter** — keyword + theme + multi-level filters across all 288 questions
+- 🏆 **Achievements & streaks** — 12 unlockable badges (first card, 10/50/100 cards, streaks, theme explorer, level climber, deck sweeper…)
+- 🔍 **Search & filter** — keyword + theme + multi-level filters across all 480 questions
 - 📊 **Stats dashboard** — totals, per-level distribution, featured prompts, and your local practice progress
+- 🖨️ **Printable flashcards** — generate a printable A4 sheet (6 cards/page) for offline classroom use
+- 👋 **Welcome tour** — first-time visitors get a 60-second onboarding walkthrough
 - 🎉 **Confetti on completion** — celebrate when you finish a deck or practice every card
-- 🔀 **Shuffle, next/previous, mark-as-practiced** — full deck control
 - ⌨️ **Keyboard shortcuts** — `←` `→` to navigate, `Space`/`Enter` to flip, `S` shuffle, `F` favorite, `R` record
-- 📱 **Responsive + accessible** — mobile menu, focus rings, reduced-motion support
+- 📱 **Responsive + accessible** — mobile menu, dropdown nav, focus rings, reduced-motion support
 - 🧩 **Zero npm build** — uses the Tailwind Play CDN, so `composer install` is all you need
 - 🗄️ **SQLite by default** — works out of the box; switch to MySQL anytime
 

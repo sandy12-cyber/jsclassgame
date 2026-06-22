@@ -99,5 +99,11 @@
         setInterval(tick, 1000);
     }
 
+    // Mark today's daily challenge as done (for achievements)
+    try {
+        const today = new Date().toISOString().slice(0, 10);
+        localStorage.setItem('speakup-daily-done', today);
+    } catch (e) {}
+
     updateFavoriteUI();
 })();

@@ -102,3 +102,69 @@ a:focus-visible {
 .recording-active {
     animation: recordPulse 1.4s ease-out infinite;
 }
+
+/* ---- Glass card effect ---- */
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+html.dark .glass {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+}
+
+/* ---- Skeleton shimmer (for loading states) ---- */
+.skeleton {
+    background: linear-gradient(90deg, rgba(148, 163, 184, 0.1) 25%, rgba(148, 163, 184, 0.2) 37%, rgba(148, 163, 184, 0.1) 63%);
+    background-size: 1000px 100%;
+    animation: shimmer 2.2s linear infinite;
+}
+.skeleton-text {
+    height: 0.75rem;
+    border-radius: 0.375rem;
+}
+
+/* ---- Animated number counter ---- */
+.counter {
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---- Rubric button active state ---- */
+.rubric-btn.btn-active {
+    transform: scale(1.02);
+}
+
+/* ---- Achievement card unlock glow ---- */
+.achievement-card.unlocked {
+    box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.3), 0 10px 30px -10px rgba(16, 185, 129, 0.4);
+}
+.achievement-card.unlocked .achievement-gradient {
+    opacity: 0.6 !important;
+}
+
+/* ---- Theme card hover sheen ---- */
+a.group:hover .glass-sheen::after {
+    opacity: 1;
+}
+
+/* ---- Scroll reveal (applied via JS IntersectionObserver) ---- */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---- Print-only / screen-only helpers ---- */
+@media print {
+    .no-print { display: none !important; }
+}
+@media screen {
+    .print-only { display: none !important; }
+}
